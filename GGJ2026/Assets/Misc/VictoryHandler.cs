@@ -4,6 +4,7 @@ public class VictoryHandler : MonoBehaviour
 {
     [Header("Distance Counter Reference")]
     public DistanceCounter distanceCounter;
+    public WSClient wsClient;
 
     void Start()
     {
@@ -20,5 +21,9 @@ public class VictoryHandler : MonoBehaviour
     void OnVictory()
     {
         Debug.Log("Victory! Distance counter finished!");
+        if(wsClient != null)
+        {
+          wsClient.Victory();
+        }
     }
 }

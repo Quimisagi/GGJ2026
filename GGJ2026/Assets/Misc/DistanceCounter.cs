@@ -5,6 +5,7 @@ using TMPro;
 public class DistanceCounter : MonoBehaviour
 {
     [Header("Distance Settings")]
+    public float initialDistance = 10f;
     public float distanceRemaining = 10f;
     public bool counterIsRunning = false;
 
@@ -16,6 +17,7 @@ public class DistanceCounter : MonoBehaviour
 
     void Start()
     {
+        distanceRemaining = initialDistance;
         counterIsRunning = true;
         UpdateDistanceUI();
     }
