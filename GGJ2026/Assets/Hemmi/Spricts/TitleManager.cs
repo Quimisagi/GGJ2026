@@ -36,7 +36,6 @@ public class TitleManager : MonoBehaviour
     }
     public void OnCilckButton()
     {
-        SceneManager.LoadScene(m_nextSceneName);
         m_audioSource.Play();
         m_fadeImage.enabled = true;
         m_isFadeIn = 1;
@@ -52,7 +51,7 @@ public class TitleManager : MonoBehaviour
             color.a = fadeTime;
             m_fadeImage.color = color;
 
-            if(fadeTime > 1.0f)
+            if(fadeTime >= 1.0f)
             {
                 m_isFadeIn = -1;
             }
