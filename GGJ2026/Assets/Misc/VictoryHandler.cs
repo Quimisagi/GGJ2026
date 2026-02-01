@@ -19,6 +19,7 @@ public class VictoryHandler : MonoBehaviour
 
     void OnVictory()
     {
+        SoundManager.Instance.PlaySound("Victory");
         Debug.Log("Victory! Distance counter finished!");
     }
 }

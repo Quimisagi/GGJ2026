@@ -24,10 +24,10 @@ public class PlayerLife : MonoBehaviour
         life--;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider other)
     {
-        if(collision.gameObject.CompareTag("Enemy") || 
-           collision.gameObject.CompareTag("Obstacle"))
+        if (other.gameObject.CompareTag("Enemy") ||
+           other.gameObject.CompareTag("Obstacle"))
         {
             DeclineEnemy();
         }
