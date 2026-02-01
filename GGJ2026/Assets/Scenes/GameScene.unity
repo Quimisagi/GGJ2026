@@ -156,6 +156,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 6b8f89d78d45dfc47b7050c43d81128b, type: 3}
   - name: Victory
     clip: {fileID: 8300000, guid: ade3d06d648ee7a46910b618abc34930, type: 3}
+  - name: Bullet
+    clip: {fileID: 8300000, guid: 55f41a3abc744da4fb989f09e2930b70, type: 3}
   punchSounds: []
 --- !u!4 &49144348
 Transform:
@@ -340,7 +342,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 13.9}
-  m_LocalScale: {x: 15, y: 1, z: 60}
+  m_LocalScale: {x: 15, y: 1, z: 70}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -645,7 +647,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -700, y: 300}
+  m_AnchoredPosition: {x: -640, y: 400}
   m_SizeDelta: {x: 500, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &838982207 stripped
@@ -832,7 +834,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17f96254fc9779e48ae385233e37456a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceRemaining: 10
+  distanceRemaining: 180
   counterIsRunning: 0
   distanceText: {fileID: 794579962}
   OnCounterFinished:
@@ -1050,13 +1052,33 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 5172332608743825764, guid: f1b6911f42c978b40a8d5948fbf0a262, type: 3}
+      propertyPath: m_obj.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5172332608743825764, guid: f1b6911f42c978b40a8d5948fbf0a262, type: 3}
       propertyPath: m_obj.Array.data[0]
       value: 
-      objectReference: {fileID: 8484648781188691811, guid: 4b2193ded891f72439001ff92bcff836, type: 3}
+      objectReference: {fileID: 5142555299137351910, guid: 7358630529f41f14781ce54016a42417, type: 3}
     - target: {fileID: 5172332608743825764, guid: f1b6911f42c978b40a8d5948fbf0a262, type: 3}
       propertyPath: m_obj.Array.data[1]
       value: 
-      objectReference: {fileID: 1933034259852794118, guid: 4aa8d53c0e4dbea4388690ba25db65cb, type: 3}
+      objectReference: {fileID: 3596844823099616781, guid: 177efe56f466bc943a053b998beb912f, type: 3}
+    - target: {fileID: 5172332608743825764, guid: f1b6911f42c978b40a8d5948fbf0a262, type: 3}
+      propertyPath: m_obj.Array.data[2]
+      value: 
+      objectReference: {fileID: 4474461464813138666, guid: 48d02191ea7076542835360b0e696190, type: 3}
+    - target: {fileID: 5172332608743825764, guid: f1b6911f42c978b40a8d5948fbf0a262, type: 3}
+      propertyPath: m_obj.Array.data[3]
+      value: 
+      objectReference: {fileID: 1933034259852794118, guid: 276b2162404b0af46b67cbf92c1de4d9, type: 3}
+    - target: {fileID: 5172332608743825764, guid: f1b6911f42c978b40a8d5948fbf0a262, type: 3}
+      propertyPath: m_obj.Array.data[4]
+      value: 
+      objectReference: {fileID: 1933034259852794118, guid: 276b2162404b0af46b67cbf92c1de4d9, type: 3}
+    - target: {fileID: 5172332608743825764, guid: f1b6911f42c978b40a8d5948fbf0a262, type: 3}
+      propertyPath: m_obj.Array.data[5]
+      value: 
+      objectReference: {fileID: 1933034259852794118, guid: 276b2162404b0af46b67cbf92c1de4d9, type: 3}
     - target: {fileID: 5367566598394705419, guid: f1b6911f42c978b40a8d5948fbf0a262, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5
@@ -1071,7 +1093,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8413354078615658558, guid: f1b6911f42c978b40a8d5948fbf0a262, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 8413354078615658558, guid: f1b6911f42c978b40a8d5948fbf0a262, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1122,10 +1144,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1280262268}
     m_Modifications:
-    - target: {fileID: 2088040054358547145, guid: 9d777492f596b2f42b308dcf35b94a6b, type: 3}
-      propertyPath: m_isWear
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2088040054358547145, guid: 9d777492f596b2f42b308dcf35b94a6b, type: 3}
       propertyPath: playerTransformation
       value: 
@@ -1196,7 +1214,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3924474284043886807, guid: 9d777492f596b2f42b308dcf35b94a6b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 113
+      value: 36
       objectReference: {fileID: 0}
     - target: {fileID: 3924474284043886807, guid: 9d777492f596b2f42b308dcf35b94a6b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1211,9 +1229,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7837667560469342601, guid: 9d777492f596b2f42b308dcf35b94a6b, type: 3}
-      propertyPath: m_Color.a
-      value: 0
-      objectReference: {fileID: 0}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: db48d9e97e4ebfa4a8163cbfd4a6e324, type: 3}
     - target: {fileID: 8826066911884207901, guid: 9d777492f596b2f42b308dcf35b94a6b, type: 3}
       propertyPath: m_Name
       value: Kamen

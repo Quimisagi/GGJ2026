@@ -34,6 +34,7 @@ public class PlayerAttack : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
+                SoundManager.Instance.PlaySound("Bullet");
                 Instantiate(bullet, pos, quaternion);
             }
         }
