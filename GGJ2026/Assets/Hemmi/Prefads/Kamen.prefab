@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 614bf9e6e0b5433459713c806f685f69, type: 3}
+  m_Sprite: {fileID: 21300000, guid: db48d9e97e4ebfa4a8163cbfd4a6e324, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -88,5 +88,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7c1f7054d3aa59458b0ccaf48890dba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerTransformation: {fileID: 0}
   m_fadeTime: 1
-  m_isWear: 0
