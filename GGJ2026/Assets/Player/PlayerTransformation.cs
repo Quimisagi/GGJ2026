@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class PlayerTransformation : MonoBehaviour
 {
-    public Image image;
     private bool isTransformation = false;
     public float TransformTimeLimit = 5.0f;
     public float TransformTimeLimitMax = 5.0f;
@@ -44,7 +43,7 @@ public class PlayerTransformation : MonoBehaviour
         }
 
         Debug.Log(isTransformation);
-        CoolTime();
+        // CoolTime();
     }
 
     void SetTransformationflag(bool flag)
@@ -80,6 +79,6 @@ public class PlayerTransformation : MonoBehaviour
             }
         }
 
-        image.fillAmount = TransformTimeLimit / TransformTimeLimitMax;
+        // image.fillAmount = TransformTimeLimit / TransformTimeLimitMax;
     }
 }
