@@ -9,20 +9,18 @@ public class PlayerTransformation : MonoBehaviour
     private bool isTransformation = false;
     public float TransformTimeLimit = 5.0f;
     public float TransformTimeLimitMax = 5.0f;
-    public float coolTime = 0.0f;
-    public float coolTimeMax = 0.0f;
 
     // Start is called before the first frame update
     void Start()
     {
-        coolTime = coolTimeMax;
+
     }
 
     // Update is called once per frame
     void Update()
     {
         // クールタイムを終えていて、変身していなかったら
-        if (!isTransformation && coolTime <= 0.0f)
+        if (!isTransformation && TransformTimeLimit >= TransformTimeLimitMax)
         {
             if (Input.GetKeyDown(KeyCode.Mouse1))
             {
@@ -31,15 +29,10 @@ public class PlayerTransformation : MonoBehaviour
         }
         else if(GetTransfomaitonFlag())
         {
-            TransformTimeLimit -= 1.0f * Time.deltaTime;
-
             if(TransformTimeLimit <= 0.0f)
             {
                 SetTransformationflag(false);
                 Debug.Log("変身強制解除");
-                
-                TransformTimeLimit = TransformTimeLimitMax;
-                Debug.Log(TransformTimeLimit);
             }
         }
         else
@@ -65,25 +58,27 @@ public class PlayerTransformation : MonoBehaviour
 
     void CoolTime()
     {
-        if (!GetTransfomaitonFlag())
+        if (GetTransfomaitonFlag())
         {
-            if (coolTime > 0.0f)
+            TransformTimeLimit -= 1.0f * Time.deltaTime;
+
+            if (TransformTimeLimit <= 0.0f)
             {
-                coolTime -= 1.0f * Time.deltaTime;
-            }
-            else
-            {
-                coolTime = 0.0f;
+                SetTransformationflag(false);
+                Debug.Log("変身強制解除");
             }
         }
         else
         {
-            if (coolTime <= 0.0f)
+            if(TransformTimeLimit < TransformTimeLimitMax)
             {
-                coolTime = coolTimeMax;
+                Debug.Log("Time回復中");
+                Debug.Log(TransformTimeLimit);
+
+                TransformTimeLimit += 1.0f * Time.deltaTime;
             }
         }
 
-        image.fillAmount = coolTime / coolTimeMax;
+        image.fillAmount = TransformTimeLimit / TransformTimeLimitMax;
     }
 }
