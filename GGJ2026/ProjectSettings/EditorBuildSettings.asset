@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Hemmi/Scenes/Title.unity
+    path: Assets/Hemmi/Scenes/TitleScene.unity
     guid: 0cec2628416bb4647b76dda795f03888
   - enabled: 1
     path: Assets/Scenes/GameScene.unity
