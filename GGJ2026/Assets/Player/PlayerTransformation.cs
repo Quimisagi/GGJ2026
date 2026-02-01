@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class PlayerTransformation : MonoBehaviour
 {
-    public Image image;
     private bool isTransformation = false;
     public float TransformTimeLimit = 5.0f;
     public float TransformTimeLimitMax = 5.0f;
@@ -20,21 +19,21 @@ public class PlayerTransformation : MonoBehaviour
     void Update()
     {
         // クールタイムを終えていて、変身していなかったら
-        if (!isTransformation && TransformTimeLimit >= TransformTimeLimitMax)
+        if (!isTransformation)
         {
             if (Input.GetKeyDown(KeyCode.Mouse1))
             {
                 SetTransformationflag(true);
             }
         }
-        else if(GetTransfomaitonFlag())
-        {
-            if(TransformTimeLimit <= 0.0f)
-            {
-                SetTransformationflag(false);
-                Debug.Log("変身強制解除");
-            }
-        }
+        //else if(GetTransfomaitonFlag())
+        //{
+        //    if(TransformTimeLimit <= 0.0f)
+        //    {
+        //        SetTransformationflag(false);
+        //        Debug.Log("変身強制解除");
+        //    }
+        //}
         else
         {
             if (Input.GetKeyDown(KeyCode.Mouse1))
@@ -43,7 +42,8 @@ public class PlayerTransformation : MonoBehaviour
             }
         }
 
-        CoolTime();
+        Debug.Log(isTransformation);
+        // CoolTime();
     }
 
     void SetTransformationflag(bool flag)
@@ -65,20 +65,20 @@ public class PlayerTransformation : MonoBehaviour
             if (TransformTimeLimit <= 0.0f)
             {
                 SetTransformationflag(false);
-                Debug.Log("変身強制解除");
+                //Debug.Log("変身強制解除");
             }
         }
         else
         {
             if(TransformTimeLimit < TransformTimeLimitMax)
             {
-                Debug.Log("Time回復中");
-                Debug.Log(TransformTimeLimit);
+                //Debug.Log("Time回復中");
+                //Debug.Log(TransformTimeLimit);
 
                 TransformTimeLimit += 1.0f * Time.deltaTime;
             }
         }
 
-        image.fillAmount = TransformTimeLimit / TransformTimeLimitMax;
+        // image.fillAmount = TransformTimeLimit / TransformTimeLimitMax;
     }
 }
