@@ -5,7 +5,7 @@ using UnityEngine;
 public class RandamObj : MonoBehaviour
 {
     Vector3 m_direc;
-    [SerializeField] float m_speed = 2.0f;
+    [SerializeField] float m_speed = 4.0f;
     [SerializeField] float m_limitTime = 10.0f;
 
     float m_timer = 0.0f;
