@@ -21,6 +21,7 @@ public class ObjManager : MonoBehaviour
     {
         RandPos();
         RandTime();
+        m_randTime = m_minRandTime;
     }
 
     // Update is called once per frame
