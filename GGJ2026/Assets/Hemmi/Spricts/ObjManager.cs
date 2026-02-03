@@ -8,6 +8,8 @@ public class ObjManager : MonoBehaviour
     [SerializeField] GameObject[] m_obj;
     [SerializeField] float m_minRandTime = 2.0f;
     [SerializeField] float m_maxRandTime = 5.0f;
+    
+    [SerializeField] bool isAutomatic = true;
 
     int m_first;
     int m_second;
@@ -19,12 +21,15 @@ public class ObjManager : MonoBehaviour
     {
         RandPos();
         RandTime();
+        m_randTime = m_minRandTime;
     }
 
     // Update is called once per frame
     void Update()
     {
-        GenerateObj();
+        if(isAutomatic){
+            GenerateObj();
+        }
     }
     
     void RandPos()
@@ -65,4 +70,30 @@ public class ObjManager : MonoBehaviour
         }
     }
 
+    public void SpawnAtLane(int laneNumber)
+    {
+        // Convert 1-based input to 0-based index
+        int laneIndex = laneNumber - 1;
+
+        // Validation check to ensure the index exists in our array
+        if (laneIndex >= 0 && laneIndex < m_spawnPos.Length)
+        {
+            if (m_obj.Length > 0)
+            {
+                // Pick a random object from the array
+                GameObject prefabToSpawn = m_obj[Random.Range(0, m_obj.Length)];
+                
+                // Spawn the object at the designated lane position and rotation
+                Instantiate(prefabToSpawn, m_spawnPos[laneIndex].position, m_spawnPos[laneIndex].rotation);
+            }
+            else
+            {
+                Debug.LogWarning("No objects assigned to m_obj array!");
+            }
+        }
+        else
+        {
+            Debug.LogWarning($"Invalid Lane Number: {laneNumber}. Please use a number between 1 and {m_spawnPos.Length}");
+        }
+    }
 }

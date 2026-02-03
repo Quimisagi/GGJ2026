@@ -7,8 +7,10 @@ using UnityEngine.UI;
 public class TitleManager : MonoBehaviour
 {
     [SerializeField] string m_nextSceneName = "GameScene";
+    [SerializeField] string multiplayerScene = "MultiplayerWaiting";
     [SerializeField] Image m_fadeImage;
     [SerializeField] float m_fadeTime = 2.0f;
+    bool normalGame = false;
     
     AudioSource m_audioSource;
     int m_isFadeIn = 0;
@@ -31,12 +33,21 @@ public class TitleManager : MonoBehaviour
         FadeIn();
         if(m_isFadeIn == -1)
         {
+            if(normalGame)
             SceneManager.LoadScene(m_nextSceneName);
+            else
+            SceneManager.LoadScene(multiplayerScene);
         }
     }
     public void OnCilckButton()
     {
-        SceneManager.LoadScene(m_nextSceneName);
+        m_audioSource.Play();
+        m_fadeImage.enabled = true;
+        m_isFadeIn = 1;
+        normalGame = true;
+    }
+    public void OnCilckMultiplayerButton()
+    {
         m_audioSource.Play();
         m_fadeImage.enabled = true;
         m_isFadeIn = 1;
@@ -52,7 +63,7 @@ public class TitleManager : MonoBehaviour
             color.a = fadeTime;
             m_fadeImage.color = color;
 
-            if(fadeTime > 1.0f)
+            if(fadeTime >= 1.0f)
             {
                 m_isFadeIn = -1;
             }

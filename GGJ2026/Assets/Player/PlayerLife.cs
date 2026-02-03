@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerLife : MonoBehaviour
 {
@@ -39,6 +40,8 @@ public class PlayerLife : MonoBehaviour
         {
             cameraobj.transform.SetParent(null);
             Destroy(this.gameObject);
+
+            SceneManager.LoadScene("GameOverScene");
             Debug.Log("Ž€‚ñ‚¾");
         }
     }

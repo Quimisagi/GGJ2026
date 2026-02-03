@@ -1143,6 +1143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17f96254fc9779e48ae385233e37456a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialDistance: 200
   distanceRemaining: 180
   counterIsRunning: 0
   distanceText: {fileID: 794579962}
@@ -1431,6 +1432,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5172332608743825764, guid: f1b6911f42c978b40a8d5948fbf0a262, type: 3}
+      propertyPath: isAutomatic
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5172332608743825764, guid: f1b6911f42c978b40a8d5948fbf0a262, type: 3}
       propertyPath: m_maxRandTime
       value: 2
